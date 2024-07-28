@@ -69,6 +69,7 @@ let score = 0;
 
 const gameStart = function () {
   document.querySelector("body").style.backgroundColor = "white";
+  document.querySelector(".scorebox").style.display = "block";
   startPage.style.display = "none";
   guessObj.textContent = questions[0].name;
   guessObj.style.display = "block";
@@ -82,11 +83,12 @@ const rightAns = function () {
   score++;
   document.querySelector(".score").textContent = score.toString();
   document.querySelector("body").style.backgroundColor = "#8acf00";
-  guessObj.textContent = "correct answer";
+  guessObj.textContent = "right";
   guessBrat.style.display = "none";
   guessNotBrat.style.display = "none";
   if (questions.length > 0) {
-    nextButton.style.display = "block";
+    setTimeout(nextQuestion, 1 * 1000);
+    // nextButton.style.display = "block";
   } else {
     result.style.display = "block";
     result.textContent = `You got ${score} out of ${currentAns.length} correct`;
@@ -104,11 +106,11 @@ const nextAns = function () {
 
 const wrongAns = function () {
   document.querySelector("body").style.backgroundColor = "red";
-  guessObj.textContent = "wrong answer";
+  guessObj.textContent = "wrong";
   guessBrat.style.display = "none";
   guessNotBrat.style.display = "none";
   if (questions.length > 0) {
-    nextButton.style.display = "flex";
+    setTimeout(nextQuestion, 1 * 1000);
   } else {
     result.style.display = "block";
     result.textContent = `You got ${score} out of ${currentAns.length} correct`;
