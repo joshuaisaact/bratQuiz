@@ -30,14 +30,30 @@ h1 {
   filter: blur(2px);
 }
 
-#start-page {
+/* #start-page {
   display: none;
-}
+} */
 
 .result {
   display: none;
 }
 
 .try-again {
+  display: none;
+}
+
+.next-question {
+  display: none;
+}
+
+.guess-object {
+  display: none;
+}
+
+.guess-brat {
+  display: none;
+}
+
+.guess-notbrat {
   display: none;
 }
