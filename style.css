@@ -1,0 +1,23 @@
+body, html {
+    font-family: "Arial Narrow";
+    background-color:#8ACF00;
+    display: grid;
+    margin: 0;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    width: 80%;
+    height: 80%;
+}
+
+h1 {
+    font-size: 10rem;
+    font-weight: 500;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    filter: blur(2px);
+}
