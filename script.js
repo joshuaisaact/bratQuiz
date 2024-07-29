@@ -20,7 +20,19 @@ let questions = [
     answer: "brat",
   },
   {
+    name: "splitting the g",
+    answer: "not brat",
+  },
+  {
     name: "stanley cups",
+    answer: "not brat",
+  },
+  {
+    name: "dry january",
+    answer: "not brat",
+  },
+  {
+    name: "dry robes",
     answer: "not brat",
   },
   {
@@ -34,6 +46,14 @@ let questions = [
   {
     name: "prince william",
     answer: "not brat",
+  },
+  {
+    name: "kate middleton",
+    answer: "not brat",
+  },
+  {
+    name: "meghan markle",
+    answer: "brat",
   },
   {
     name: "little keys",
@@ -56,12 +76,24 @@ let questions = [
     answer: "not brat",
   },
   {
+    name: "inter-generational trauma",
+    answer: "brat",
+  },
+  {
     name: "spicy margs",
     answer: "brat",
   },
   {
+    name: "pilates",
+    answer: "not brat",
+  },
+  {
     name: "little lines",
     answer: "brat",
+  },
+  {
+    name: "foxtons",
+    answer: "not brat",
   },
 ];
 
@@ -78,25 +110,28 @@ const btnTryAgain = document.querySelector(".try-again");
 let currentAns = [];
 let score = 0;
 
+const shufQuestions = function (array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+};
+
 const gameStart = function () {
   document.querySelector("body").style.backgroundColor = "white";
   document.querySelector(".scorebox").classList.remove("hidden");
   startPage.classList.toggle("hidden");
+  // shufQuestions(questions);
   guessObj.textContent = questions[0].name;
   guessObj.classList.remove("hidden");
   btnStart.classList.add("hidden");
-  showGuessBtns();
+  toggleGuessBtns();
   currentAns.push(questions.shift());
 };
 
-const hideGuessBtns = function () {
-  btnGuessBrat.classList.add("hidden");
-  btnGuessNotBrat.classList.add("hidden");
-};
-
-const showGuessBtns = function () {
-  btnGuessBrat.classList.remove("hidden");
-  btnGuessNotBrat.classList.remove("hidden");
+const toggleGuessBtns = function () {
+  btnGuessBrat.classList.toggle("hidden");
+  btnGuessNotBrat.classList.toggle("hidden");
 };
 
 const nextQ = function () {
@@ -114,7 +149,7 @@ const rightAns = function () {
   document.querySelector(".score").textContent = score.toString();
   document.querySelector("body").style.backgroundColor = "#8acf00";
   guessObj.textContent = "right";
-  hideGuessBtns();
+  toggleGuessBtns();
   nextQ();
 };
 
@@ -128,13 +163,13 @@ const nextAns = function () {
 
 const resGuess = function () {
   guessObj.classList.remove("hidden");
-  showGuessBtns();
+  toggleGuessBtns();
 };
 
 const wrongAns = function () {
   document.querySelector("body").style.backgroundColor = "red";
   guessObj.textContent = "wrong";
-  hideGuessBtns();
+  toggleGuessBtns();
   nextQ();
 };
 
@@ -157,6 +192,7 @@ const restart = function () {
   btnTryAgain.classList.add("hidden");
   currentAns.push(questions.shift());
   result.classList.add("hidden");
+  shufQuestions(questions);
 };
 
 btnGuessBrat.addEventListener("click", function () {
