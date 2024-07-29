@@ -110,10 +110,18 @@ const btnTryAgain = document.querySelector(".try-again");
 let currentAns = [];
 let score = 0;
 
+const shufQuestions = function (array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+};
+
 const gameStart = function () {
   document.querySelector("body").style.backgroundColor = "white";
   document.querySelector(".scorebox").classList.remove("hidden");
   startPage.classList.toggle("hidden");
+  // shufQuestions(questions);
   guessObj.textContent = questions[0].name;
   guessObj.classList.remove("hidden");
   btnStart.classList.add("hidden");
@@ -184,6 +192,7 @@ const restart = function () {
   btnTryAgain.classList.add("hidden");
   currentAns.push(questions.shift());
   result.classList.add("hidden");
+  shufQuestions(questions);
 };
 
 btnGuessBrat.addEventListener("click", function () {
