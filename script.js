@@ -48,6 +48,10 @@ let questions = [
     answer: "not brat",
   },
   {
+    name: "princess diana",
+    answer: "brat",
+  },
+  {
     name: "wearable blankets",
     answer: "not brat",
   },
