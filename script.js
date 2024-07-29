@@ -76,7 +76,7 @@ let questions = [
     answer: "not brat",
   },
   {
-    name: "intergenerational trauma",
+    name: "inter-generational trauma",
     answer: "brat",
   },
   {
