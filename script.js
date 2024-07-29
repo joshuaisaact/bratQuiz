@@ -139,7 +139,7 @@ const nextQuestion = function () {
   document.querySelector("body").style.backgroundColor = "white";
   result.classList.add("hidden");
   guessObj.textContent = nextAns();
-  nextButton.classList.add("hidden");
+  btnNext.classList.add("hidden");
   currentAns.unshift(questions.shift());
 };
 
