@@ -49,46 +49,23 @@ h1 {
   filter: blur(2px);
 }
 
-/* #start-page {
-  display: none;
-} */
-
 .result {
-  /* display: none; */
   font-size: 2rem;
   font-family: "Arial Narrow";
   font-weight: 500;
   filter: blur(0.5px);
   margin: 0 3rem;
 }
-/*
-.try-again {
-  display: none;
-}
-
-.next-question {
-  display: none;
-} */
 
 .guess-object {
-  /* display: none; */
   font-size: 4rem;
   filter: blur(1px);
 }
-/*
-.guess-brat {
-  display: none;
-}
-
-.guess-notbrat {
-  display: none;
-} */
 
 .scorebox {
   position: fixed;
   width: 100%;
   bottom: 2%;
-  /* display: none; */
 }
 
 .buttons {
