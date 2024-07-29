@@ -38,6 +38,7 @@ button {
   font-weight: 500;
   filter: blur(0.5px);
   margin: 0 3rem;
+  color: #000;
 }
 
 h1 {

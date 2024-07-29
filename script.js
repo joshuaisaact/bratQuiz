@@ -20,7 +20,19 @@ let questions = [
     answer: "brat",
   },
   {
+    name: "splitting the g",
+    answer: "not brat",
+  },
+  {
     name: "stanley cups",
+    answer: "not brat",
+  },
+  {
+    name: "dry january",
+    answer: "not brat",
+  },
+  {
+    name: "dry robes",
     answer: "not brat",
   },
   {
@@ -36,6 +48,14 @@ let questions = [
     answer: "not brat",
   },
   {
+    name: "kate middleton",
+    answer: "not brat",
+  },
+  {
+    name: "meghan markle",
+    answer: "brat",
+  },
+  {
     name: "little keys",
     answer: "brat",
   },
@@ -48,16 +68,32 @@ let questions = [
     answer: "not brat",
   },
   {
+    name: "millwall fc",
+    answer: "not brat",
+  },
+  {
     name: "wearable blankets",
     answer: "not brat",
+  },
+  {
+    name: "intergenerational trauma",
+    answer: "brat",
   },
   {
     name: "spicy margs",
     answer: "brat",
   },
   {
+    name: "pilates",
+    answer: "not brat",
+  },
+  {
     name: "little lines",
     answer: "brat",
+  },
+  {
+    name: "foxtons",
+    answer: "not brat",
   },
 ];
 
