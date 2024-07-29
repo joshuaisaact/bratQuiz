@@ -76,13 +76,13 @@ let score = 0;
 
 const gameStart = function () {
   document.querySelector("body").style.backgroundColor = "white";
-  document.querySelector(".scorebox").style.display = "block";
-  startPage.style.display = "none";
+  document.querySelector(".scorebox").classList.remove("hidden");
+  startPage.classList.toggle("hidden");
   guessObj.textContent = questions[0].name;
-  guessObj.style.display = "block";
-  startButton.style.display = "none";
-  guessBrat.style.display = "inline-block";
-  guessNotBrat.style.display = "inline-block";
+  guessObj.classList.remove("hidden");
+  startButton.classList.add("hidden");
+  guessBrat.classList.remove("hidden");
+  guessNotBrat.classList.remove("hidden");
   currentAns.push(questions.shift());
 };
 
@@ -90,9 +90,9 @@ const nextQ = function () {
   if (questions.length > 0) {
     setTimeout(nextQuestion, 1 * 1000);
   } else {
-    result.style.display = "block";
+    result.classList.remove("hidden");
     result.textContent = `${score} out of ${currentAns.length}`;
-    tryAgain.style.display = "block";
+    tryAgain.classList.remove("hidden");
   }
 };
 
@@ -101,8 +101,8 @@ const rightAns = function () {
   document.querySelector(".score").textContent = score.toString();
   document.querySelector("body").style.backgroundColor = "#8acf00";
   guessObj.textContent = "right";
-  guessBrat.style.display = "none";
-  guessNotBrat.style.display = "none";
+  guessBrat.classList.add("hidden");
+  guessNotBrat.classList.add("hidden");
   nextQ();
 };
 
@@ -115,25 +115,25 @@ const nextAns = function () {
 };
 
 const resGuess = function () {
-  guessObj.style.display = "block";
-  guessBrat.style.display = "inline-block";
-  guessNotBrat.style.display = "inline-block";
+  guessObj.classList.remove("hidden");
+  guessBrat.classList.remove("hidden");
+  guessNotBrat.classList.remove("hidden");
 };
 
 const wrongAns = function () {
   document.querySelector("body").style.backgroundColor = "red";
   guessObj.textContent = "wrong";
-  guessBrat.style.display = "none";
-  guessNotBrat.style.display = "none";
+  guessBrat.classList.add("hidden");
+  guessNotBrat.classList.add("hidden");
   nextQ();
 };
 
 const nextQuestion = function () {
   resGuess();
   document.querySelector("body").style.backgroundColor = "white";
-  result.style.display = "none";
+  result.classList.add("hidden");
   guessObj.textContent = nextAns();
-  nextButton.style.display = "none";
+  nextButton.classList.add("hidden");
   currentAns.unshift(questions.shift());
 };
 
@@ -144,9 +144,9 @@ const restart = function () {
   document.querySelector("body").style.backgroundColor = "white";
   questions = currentAns.splice(0, currentAns.length).reverse();
   guessObj.textContent = questions[0].name;
-  tryAgain.style.display = "none";
+  tryAgain.classList.add("hidden");
   currentAns.push(questions.shift());
-  result.style.display = "none";
+  result.classList.add("hidden");
 };
 
 guessBrat.addEventListener("click", function () {
