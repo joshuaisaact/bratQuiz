@@ -8,7 +8,7 @@
 
 let questions = [
   {
-    name: "bic lighter",
+    name: "bic lighters",
     answer: "brat",
   },
   {
@@ -24,7 +24,7 @@ let questions = [
     answer: "not brat",
   },
   {
-    name: "a lime bike",
+    name: "lime bikes",
     answer: "brat",
   },
   {
@@ -36,8 +36,12 @@ let questions = [
     answer: "not brat",
   },
   {
-    name: "a little key",
+    name: "little keys",
     answer: "brat",
+  },
+  {
+    name: "belgium",
+    answer: "not brat",
   },
   {
     name: "rishi sunak",
