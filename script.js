@@ -107,7 +107,7 @@ const btnGuessNotBrat = document.querySelector(".guess-notbrat");
 const result = document.querySelector(".result");
 const btnNext = document.querySelector(".next-question");
 const btnTryAgain = document.querySelector(".try-again");
-let currentAns = [];
+let currentAns = 0;
 let score = 0;
 
 const shufQuestions = function (array) {
@@ -126,7 +126,7 @@ const gameStart = function () {
   guessObj.classList.remove("hidden");
   btnStart.classList.add("hidden");
   toggleGuessBtns();
-  currentAns.push(questions.shift());
+  // currentAns.push(questions.shift());
 };
 
 const toggleGuessBtns = function () {
@@ -135,11 +135,11 @@ const toggleGuessBtns = function () {
 };
 
 const nextQ = function () {
-  if (questions.length > 0) {
+  if (currentAns < questions.length - 1) {
     setTimeout(nextQuestion, 1 * 1000);
   } else {
     result.classList.remove("hidden");
-    result.textContent = `${score} out of ${currentAns.length}`;
+    result.textContent = `${score} out of ${questions.length}`;
     btnTryAgain.classList.remove("hidden");
   }
 };
@@ -149,16 +149,13 @@ const rightAns = function () {
   document.querySelector(".score").textContent = score.toString();
   document.querySelector("body").style.backgroundColor = "#8acf00";
   guessObj.textContent = "right";
-  toggleGuessBtns();
   nextQ();
+  toggleGuessBtns();
 };
 
 const nextAns = function () {
-  if (questions.length > 0) {
-    return questions[0].name;
-  } else {
-    return `You got ${score} out of ${currentAns.length} correct`;
-  }
+  return questions[currentAns].name;
+
 };
 
 const resGuess = function () {
@@ -169,38 +166,37 @@ const resGuess = function () {
 const wrongAns = function () {
   document.querySelector("body").style.backgroundColor = "red";
   guessObj.textContent = "wrong";
-  toggleGuessBtns();
   nextQ();
+  toggleGuessBtns();
 };
 
 const nextQuestion = function () {
+  currentAns++;
+  guessObj.textContent = nextAns();
   resGuess();
   document.querySelector("body").style.backgroundColor = "white";
   result.classList.add("hidden");
-  guessObj.textContent = nextAns();
   btnNext.classList.add("hidden");
-  currentAns.unshift(questions.shift());
 };
 
 const restart = function () {
   resGuess();
   score = 0;
+  currentAns = 0;
   document.querySelector(".score").textContent = score.toString();
   document.querySelector("body").style.backgroundColor = "white";
-  questions = currentAns.splice(0, currentAns.length).reverse();
-  guessObj.textContent = questions[0].name;
   btnTryAgain.classList.add("hidden");
-  currentAns.push(questions.shift());
   result.classList.add("hidden");
   shufQuestions(questions);
+  guessObj.textContent = questions[0].name;
 };
 
 btnGuessBrat.addEventListener("click", function () {
-  return currentAns[0].answer === "brat" ? rightAns() : wrongAns();
+  return questions[currentAns].answer === "brat" ? rightAns() : wrongAns();
 });
 
 btnGuessNotBrat.addEventListener("click", function () {
-  return currentAns[0].answer === "not brat" ? rightAns() : wrongAns();
+  return questions[currentAns].answer === "not brat" ? rightAns() : wrongAns();
 });
 
 btnTryAgain.addEventListener("click", function () {
