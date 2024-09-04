@@ -4,7 +4,7 @@
 
 # a brat summer trivia website
 
-welcome to **brat or not**, a trivia game loosely based on charli xcx's "brat summer" aesthetic. think you know what's brat and what's not? it’s a pretty simple game — just make some quick decisions on random pop culture, lifestyle, and trends. some of it fits the brat vibe, some of it doesn’t. you get the idea.
+**brat or not**, a trivia game loosely based on charli xcx's "brat summer" aesthetic. think you know what's brat and what's not? it’s a pretty simple game — just make some quick decisions on random pop culture, lifestyle, and trends. some of it fits the brat vibe, some of it doesn’t. you get the idea.
 
 ##### features
 
